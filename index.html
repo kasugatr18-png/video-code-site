@@ -94,11 +94,9 @@
         errorMsg.textContent = "確認中...";
 
         try {
-            // ヘッダーを省くことでCORSエラー（通信エラー）を回避します
-            const response = await fetch(GAS_URL, {
-                method: "POST",
-                body: JSON.stringify({ code: codeInput, videoType: videoType })
-            });
+            // GETリクエストに変更して通信エラー（CORS制限）を回避
+            const requestUrl = `${GAS_URL}?code=${encodeURIComponent(codeInput)}&videoType=${videoType}`;
+            const response = await fetch(requestUrl);
             const result = await response.json();
 
             if (result.success) {
@@ -111,7 +109,7 @@
         } catch (err) {
             console.error(err);
             errorMsg.style.color = "red";
-            errorMsg.textContent = "通信エラーが発生しました。GASのURLやデプロイ設定を確認してください。";
+            errorMsg.textContent = "通信エラーが発生しました。";
         }
     }
 </script>
