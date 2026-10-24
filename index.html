@@ -1,114 +1,95 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
+<!DOCTYPE html>
+<html lang="ja">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="Content-Style-Type" content="text/css">
-  <title></title>
-  <meta name="Generator" content="Cocoa HTML Writer">
-  <meta name="CocoaVersion" content="2685.6">
-  <style type="text/css">
-    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
-    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
-  </style>
+    <meta charset="UTF-8">
+    <title>特典動画視聴ページ</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            text-align: center;
+            margin-top: 100px;
+            background-color: #f9f9f9;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            display: inline-block;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        input[type="text"] {
+            width: 300px;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            margin-right: 10px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        #error-msg {
+            color: red;
+            margin-top: 15px;
+        }
+    </style>
 </head>
 <body>
-<p class="p1">&lt;!DOCTYPE html&gt;</p>
-<p class="p1">&lt;html lang="ja"&gt;</p>
-<p class="p1">&lt;head&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta charset="UTF-8"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;title&gt;特典動画視聴ページ&lt;/title&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;style&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>body {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-family: sans-serif;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>text-align: center;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin-top: 100px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>background-color: #f9f9f9;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.container {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>background: white;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>padding: 30px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 8px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>display: inline-block;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>box-shadow: 0 4px 10px rgba(0,0,0,0.1);</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p1"><span class="Apple-converted-space">        </span>input[type="text"] {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>width: 300px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>padding: 10px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-size: 16px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>border: 1px solid #ccc;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 4px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin-right: 10px;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p1"><span class="Apple-converted-space">        </span>button {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>padding: 10px 20px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-size: 16px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>background-color: #007bff;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>color: white;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>border: none;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 4px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>cursor: pointer;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p1"><span class="Apple-converted-space">        </span>button:hover {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>background-color: #0056b3;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p1"><span class="Apple-converted-space">        </span>#error-msg {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>color: red;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin-top: 15px;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/style&gt;</p>
-<p class="p1">&lt;/head&gt;</p>
-<p class="p1">&lt;body&gt;</p>
-<p class="p2"><br></p>
-<p class="p1">&lt;div class="container"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;h2&gt;コードを入力して動画を見る&lt;/h2&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;input type="text" id="code-input" placeholder="20桁のコードを入力" maxlength="20"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;button onclick="verifyCode()"&gt;送信&lt;/button&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div id="error-msg"&gt;&lt;/div&gt;</p>
-<p class="p1">&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1">&lt;script&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>// Google Apps ScriptのウェブアプリURL</p>
-<p class="p1"><span class="Apple-converted-space">    </span>const GAS_URL = "YOUR_GAS_WEB_APP_URL";</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>async function verifyCode() {</p>
-<p class="p1"><span class="Apple-converted-space">        </span>const codeInput = document.getElementById("code-input").value.trim();</p>
-<p class="p1"><span class="Apple-converted-space">        </span>const errorMsg = document.getElementById("error-msg");</p>
-<p class="p1"><span class="Apple-converted-space">        </span>errorMsg.textContent = "";</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>// 形式判定（英数字混ざった20桁かチェック）</p>
-<p class="p1"><span class="Apple-converted-space">        </span>const regex = /^(?=.*[0-9])(?=.*[A-Za-z])[A-Za-z0-9]{20}$/;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>if (!regex.test(codeInput)) {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>errorMsg.textContent = "コードは20桁で、数字と英語（大文字・小文字）の両方を必ず含めてください。";</p>
-<p class="p1"><span class="Apple-converted-space">            </span>return;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>errorMsg.style.color = "blue";</p>
-<p class="p1"><span class="Apple-converted-space">        </span>errorMsg.textContent = "確認中...";</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>try {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>// GASへ問い合わせ</p>
-<p class="p1"><span class="Apple-converted-space">            </span>const response = await fetch(GAS_URL, {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>method: "POST",</p>
-<p class="p1"><span class="Apple-converted-space">                </span>body: JSON.stringify({ code: codeInput })</p>
-<p class="p1"><span class="Apple-converted-space">            </span>});</p>
-<p class="p1"><span class="Apple-converted-space">            </span>const result = await response.json();</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">            </span>if (result.success) {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>alert("コードが確認されました！動画ページへ移動します。");</p>
-<p class="p1"><span class="Apple-converted-space">                </span>window.location.href = result.url; // 返ってきた動画URLへジャンプ</p>
-<p class="p1"><span class="Apple-converted-space">            </span>} else {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>errorMsg.style.color = "red";</p>
-<p class="p1"><span class="Apple-converted-space">                </span>errorMsg.textContent = result.message;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>}</p>
-<p class="p1"><span class="Apple-converted-space">        </span>} catch (err) {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>console.error(err);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>errorMsg.style.color = "red";</p>
-<p class="p1"><span class="Apple-converted-space">            </span>errorMsg.textContent = "通信エラーが発生しました。もう一度お試しください。";</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p1">&lt;/script&gt;</p>
-<p class="p2"><br></p>
-<p class="p1">&lt;/body&gt;</p>
-<p class="p1">&lt;/html&gt;</p>
+
+<div class="container">
+    <h2>コードを入力して動画を見る</h2>
+    <input type="text" id="code-input" placeholder="20桁のコードを入力" maxlength="20">
+    <button onclick="verifyCode()">送信</button>
+    <div id="error-msg"></div>
+</div>
+
+<script>
+    const GAS_URL = "YOUR_GAS_WEB_APP_URL";
+
+    async function verifyCode() {
+        const codeInput = document.getElementById("code-input").value.trim();
+        const errorMsg = document.getElementById("error-msg");
+        errorMsg.textContent = "";
+
+        const regex = /^(?=.*[0-9])(?=.*[A-Za-z])[A-Za-z0-9]{20}$/;
+        if (!regex.test(codeInput)) {
+            errorMsg.textContent = "コードは20桁で、数字と英語（大文字・小文字）の両方を必ず含めてください。";
+            return;
+        }
+
+        errorMsg.style.color = "blue";
+        errorMsg.textContent = "確認中...";
+
+        try {
+            const response = await fetch(GAS_URL, {
+                method: "POST",
+                body: JSON.stringify({ code: codeInput })
+            });
+            const result = await response.json();
+
+            if (result.success) {
+                alert("コードが確認されました！動画ページへ移動します。");
+                window.location.href = result.url;
+            } else {
+                errorMsg.style.color = "red";
+                errorMsg.textContent = result.message;
+            }
+        } catch (err) {
+            console.error(err);
+            errorMsg.style.color = "red";
+            errorMsg.textContent = "通信エラーが発生しました。もう一度お試しください。";
+        }
+    }
+</script>
+
 </body>
 </html>
