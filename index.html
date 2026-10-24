@@ -51,7 +51,7 @@
     <!-- 動画1用 -->
     <div class="container">
         <h2>動画 1</h2>
-        <input type="text" id="code-input-1" maxlength="20">
+        <input type="text" id="code-input-1">
         <button onclick="verifyCode('video1', 'code-input-1', 'error-msg-1')">送信</button>
         <div id="error-msg-1" class="error-msg"></div>
     </div>
@@ -61,7 +61,7 @@
     <!-- 動画2用 -->
     <div class="container">
         <h2>動画 2</h2>
-        <input type="text" id="code-input-2" maxlength="20">
+        <input type="text" id="code-input-2">
         <button onclick="verifyCode('video2', 'code-input-2', 'error-msg-2')">送信</button>
         <div id="error-msg-2" class="error-msg"></div>
     </div>
@@ -71,7 +71,7 @@
     <!-- 動画3用 -->
     <div class="container">
         <h2>動画 3</h2>
-        <input type="text" id="code-input-3" maxlength="20">
+        <input type="text" id="code-input-3">
         <button onclick="verifyCode('video3', 'code-input-3', 'error-msg-3')">送信</button>
         <div id="error-msg-3" class="error-msg"></div>
     </div>
@@ -84,17 +84,10 @@
         const errorMsg = document.getElementById(errorId);
         errorMsg.textContent = "";
 
-        const regex = /^(?=.*[0-9])(?=.*[A-Za-z])[A-Za-z0-9]{20}$/;
-        if (!regex.test(codeInput)) {
-            errorMsg.textContent = "20桁で、数字と英語の両方を必ず含めてください。";
-            return;
-        }
-
         errorMsg.style.color = "blue";
         errorMsg.textContent = "確認中...";
 
         try {
-            // GETリクエストに変更して通信エラー（CORS制限）を回避
             const requestUrl = `${GAS_URL}?code=${encodeURIComponent(codeInput)}&videoType=${videoType}`;
             const response = await fetch(requestUrl);
             const result = await response.json();
@@ -109,7 +102,7 @@
         } catch (err) {
             console.error(err);
             errorMsg.style.color = "red";
-            errorMsg.textContent = "通信エラーが発生しました。";
+            errorMsg.textContent = "無効なコードです。";
         }
     }
 </script>
