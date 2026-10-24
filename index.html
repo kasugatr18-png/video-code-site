@@ -77,7 +77,7 @@
     </div>
 
 <script>
-   https://script.google.com/macros/s/AKfycbzh0TrELryHgbGE0q1F0RT-V7wMtRMF8CahGdUNM0d1_634wQ9Ur0ksN4H4UPyCq7D8GA/exec; // ご自身のGASのURLに書き換えてください
+    const GAS_URL = "YOUR_GAS_WEB_APP_URL"; // ご自身のGASのURLに書き換えてください
 
     async function verifyCode(videoType, inputId, errorId) {
         const codeInput = document.getElementById(inputId).value.trim();
@@ -89,8 +89,13 @@
 
         try {
             const requestUrl = `${GAS_URL}?code=${encodeURIComponent(codeInput)}&videoType=${videoType}`;
+            console.log("リクエスト送信先:", requestUrl);
+
             const response = await fetch(requestUrl);
-            const result = await response.json();
+            const textResponse = await response.text();
+            console.log("GASからの生レスポンス:", textResponse);
+
+            const result = JSON.parse(textResponse);
 
             if (result.success) {
                 alert("コードが確認されました！動画ページへ移動します。");
@@ -100,7 +105,7 @@
                 errorMsg.textContent = result.message;
             }
         } catch (err) {
-            console.error(err);
+            console.error("詳細エラー:", err);
             errorMsg.style.color = "red";
             errorMsg.textContent = "無効なコードです。";
         }
