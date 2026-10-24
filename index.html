@@ -7,7 +7,7 @@
         body {
             font-family: sans-serif;
             text-align: center;
-            margin-top: 100px;
+            margin-top: 50px;
             background-color: #f9f9f9;
         }
         .container {
@@ -16,18 +16,20 @@
             border-radius: 8px;
             display: inline-block;
             box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+            width: 400px;
         }
         input[type="text"] {
-            width: 300px;
+            width: 250px;
             padding: 10px;
-            font-size: 16px;
+            font-size: 14px;
             border: 1px solid #ccc;
             border-radius: 4px;
-            margin-right: 10px;
+            margin-right: 5px;
         }
         button {
-            padding: 10px 20px;
-            font-size: 16px;
+            padding: 10px 15px;
+            font-size: 14px;
             background-color: #007bff;
             color: white;
             border: none;
@@ -37,32 +39,54 @@
         button:hover {
             background-color: #0056b3;
         }
-        #error-msg {
+        .error-msg {
             color: red;
-            margin-top: 15px;
+            margin-top: 10px;
+            font-size: 14px;
         }
     </style>
 </head>
 <body>
 
-<div class="container">
-    <h2>コードを入力して動画を見る</h2>
-    <input type="text" id="code-input" placeholder="20桁のコードを入力" maxlength="20">
-    <button onclick="verifyCode()">送信</button>
-    <div id="error-msg"></div>
-</div>
+    <!-- 動画1用 -->
+    <div class="container">
+        <h2>動画 1</h2>
+        <input type="text" id="code-input-1" maxlength="20">
+        <button onclick="verifyCode('video1', 'code-input-1', 'error-msg-1')">送信</button>
+        <div id="error-msg-1" class="error-msg"></div>
+    </div>
+
+    <br>
+
+    <!-- 動画2用 -->
+    <div class="container">
+        <h2>動画 2</h2>
+        <input type="text" id="code-input-2" maxlength="20">
+        <button onclick="verifyCode('video2', 'code-input-2', 'error-msg-2')">送信</button>
+        <div id="error-msg-2" class="error-msg"></div>
+    </div>
+
+    <br>
+
+    <!-- 動画3用 -->
+    <div class="container">
+        <h2>動画 3</h2>
+        <input type="text" id="code-input-3" maxlength="20">
+        <button onclick="verifyCode('video3', 'code-input-3', 'error-msg-3')">送信</button>
+        <div id="error-msg-3" class="error-msg"></div>
+    </div>
 
 <script>
-    const GAS_URL = "YOUR_GAS_WEB_APP_URL";
+    const GAS_URL = "YOUR_GAS_WEB_APP_URL"; // ご自身のGASのURLに書き換えてください
 
-    async function verifyCode() {
-        const codeInput = document.getElementById("code-input").value.trim();
-        const errorMsg = document.getElementById("error-msg");
+    async function verifyCode(videoType, inputId, errorId) {
+        const codeInput = document.getElementById(inputId).value.trim();
+        const errorMsg = document.getElementById(errorId);
         errorMsg.textContent = "";
 
         const regex = /^(?=.*[0-9])(?=.*[A-Za-z])[A-Za-z0-9]{20}$/;
         if (!regex.test(codeInput)) {
-            errorMsg.textContent = "コードは20桁で、数字と英語（大文字・小文字）の両方を必ず含めてください。";
+            errorMsg.textContent = "20桁で、数字と英語の両方を必ず含めてください。";
             return;
         }
 
@@ -70,9 +94,10 @@
         errorMsg.textContent = "確認中...";
 
         try {
+            // ヘッダーを省くことでCORSエラー（通信エラー）を回避します
             const response = await fetch(GAS_URL, {
                 method: "POST",
-                body: JSON.stringify({ code: codeInput })
+                body: JSON.stringify({ code: codeInput, videoType: videoType })
             });
             const result = await response.json();
 
@@ -86,7 +111,7 @@
         } catch (err) {
             console.error(err);
             errorMsg.style.color = "red";
-            errorMsg.textContent = "通信エラーが発生しました。もう一度お試しください。";
+            errorMsg.textContent = "通信エラーが発生しました。GASのURLやデプロイ設定を確認してください。";
         }
     }
 </script>
